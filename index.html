@@ -385,13 +385,21 @@ document.getElementById('page'+page).classList.add('active');
 
 function startCelebration(){
 
-const music=document.getElementById('pianoMusic');
-const video=document.getElementById('birthdayVideo');
-
 nextPage(7);
 
-music.play();
-video.play();
+startFireworks();
+
+setTimeout(()=>{
+
+document.getElementById("celebrateText").style.display="block";
+
+},3000);
+
+setTimeout(()=>{
+
+nextPage(8);
+
+},12000);
 
 }
 
