@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Special Surprise ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050510;
+overflow:hidden;
+color:white;
+}
+
+.page{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+position:absolute;
+top:0;
+left:0;
+}
+
+.active{
+display:flex;
+}
+
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:.2}
+50%{opacity:1}
+100%{opacity:.2}
+}
+
+h1{
+font-size:42px;
+margin-bottom:20px;
+color:#ffd700;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+max-width:700px;
+}
+
+.btn{
+margin-top:30px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+background:linear-gradient(45deg,#fff5d6,#ffd700);
+color:#000;
+}
+
+.fade{
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.photo{
+width:280px;
+height:380px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,215,0,.4);
+border:3px solid rgba(255,215,0,.6);
+}
+
+.video-box{
+width:90%;
+max-width:700px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 30px rgba(255,215,0,.3);
+}
+
+video{
+width:100%;
+display:block;
+}
+
+.letter-box{
+max-width:900px;
+height:70vh;
+overflow:auto;
+padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+backdrop-filter:blur(10px);
+text-align:left;
+line-height:2;
+}
+
+.final-title{
+font-size:60px;
+font-family:'Great Vibes',cursive;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:30px;
+}
+
+.photo{
+width:220px;
+height:300px;
+}
+
+.final-title{
+font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<!-- SCREEN 1 -->
+
+<section class="page active fade" id="page1">
+
+<h1>A Special Surprise Awaits ✨</h1>
+
+<p>
+Someone special deserves something beautiful today.
+Take a small journey through these memories and moments.
+</p>
+
+<button class="btn" onclick="nextPage(2)">
+💛 Open Surprise
+</button>
+
+</section>
+
+<!-- SCREEN 2 -->
+
+<section class="page fade" id="page2">
+
+<h1>Make A Wish 🌠</h1>
+
+<p>
+Before we begin, close your eyes for a moment and make a wish.
+May every good thing find its way to you.
+</p>
+
+<button class="btn" onclick="nextPage(3)">
+⭐ Continue
+</button>
+
+</section>
+
+<!-- PART 1 END -->
+
+<!-- SCREEN 3 -->
+
+<section class="page fade" id="page3">
+
+<h1>Memory One 📸</h1>
+
+<img src="aaradhya1.jpg" class="photo">
+
+<p style="margin-top:25px;">
+Every beautiful story begins with a beautiful soul.
+Some people leave a positive mark wherever they go.
+</p>
+
+<button class="btn" onclick="nextPage(4)">
+➡️ Next Memory
+</button>
+
+</section>
+
+<!-- SCREEN 4 -->
+
+<section class="page fade" id="page4">
+
+<h1>A Beautiful Presence ✨</h1>
+
+<img src="aaradhya2.jpg" class="photo">
+
+<p style="margin-top:25px;">
+There are people who make ordinary moments feel special.
+Their kindness stays in hearts longer than words ever can.
+</p>
+
+<button class="btn" onclick="nextPage(5)">
+💫 One More
+</button>
+
+</section>
+
+<!-- SCREEN 5 -->
+
+<section class="page fade" id="page5">
+
+<h1>Almost There 🌸</h1>
+
+<img src="aaradhya3.jpg" class="photo">
+
+<p style="margin-top:25px;">
+A smile that deserves happiness,
+a heart that deserves every good thing life can offer.
+</p>
+
+<button class="btn" onclick="nextPage(6)">
+💛 Almost There
+</button>
+
+</section>
+
+<!-- PART 2 END -->
+
+<!-- SCREEN 6 -->
+
+<section class="page fade" id="page6">
+
+<h1>For Someone Truly Special 💛</h1>
+
+<p>
+The next few moments are dedicated to someone whose presence makes the world a little brighter.
+Take a deep breath, smile, and get ready for a special celebration.
+</p>
+
+<button class="btn" onclick="startCelebration()">
+🥂 Let's Celebrate
+</button>
+
+</section>
+
+<!-- SCREEN 7 -->
+
+<section class="page fade" id="page7">
+
+<h1>Celebration Time 🎉</h1>
+
+<div class="video-box">
+
+<video id="birthdayVideo" controls>
+<source src="special.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<audio id="pianoMusic">
+<source src="piano.mp3" type="audio/mpeg">
+</audio>
+
+<p style="margin-top:20px;">
+Enjoy this special moment ✨
+</p>
+
+<button class="btn" onclick="nextPage(8)">
+💌 Read Message
+</button>
+
+</section>
+
+<!-- PART 3 END -->
+
+<!-- SCREEN 8 -->
+
+<section class="page fade" id="page8">
+
+<h1>A Letter For A Special Best Friend 💌</h1>
+
+<div class="letter-box">
+
+<p>
+
+Dear Aaradhya,
+
+Today is a very special day, and before anything else, I simply want to wish you a truly wonderful birthday.
+
+Birthdays are not only about growing older; they are about celebrating the person you have become, the memories you have created, and the happiness you bring into the lives of others. When people think about kindness, positivity, and warmth, they often imagine qualities that make someone genuinely special. Those qualities are exactly what make you stand out.
+
+Life moves quickly. Days become weeks, weeks become months, and before we realize it, another year has passed. Yet some people leave such a meaningful impression that their presence stays in our hearts no matter how much time passes. You are one of those people.
+
+Your smile has a way of making ordinary moments feel brighter. Your kindness has a way of making people feel comfortable and appreciated. And your presence has a way of turning simple conversations into memories worth remembering.
+
+As your best friend in this little story, I want to say thank you. Thank you for being the kind of person who makes life more meaningful. Thank you for the positivity you spread, even when you may not realize it. Thank you for every smile, every laugh, and every moment that makes the world feel a little lighter.
+
+On your birthday, I hope you take a moment to realize how valuable you truly are. Sometimes we focus so much on our goals, responsibilities, and future plans that we forget how much we already mean to the people around us. Never underestimate your impact. Never doubt your worth. And never forget that you deserve happiness, respect, success, and peace.
+
+May this year bring opportunities that make you proud. May it bring moments that make you smile unexpectedly. May it bring friendships that remain genuine and memories that stay beautiful forever. And whenever life becomes difficult, may you always find the strength to keep moving forward with confidence.
+
+The universe is filled with countless stars, yet every star shines in its own unique way. In the same way, there is only one Aaradhya. Your journey, your dreams, your personality, and your story are completely your own. That uniqueness is something truly beautiful.
+
+Today is your day. Celebrate yourself. Celebrate your growth. Celebrate your achievements, both big and small. Celebrate every lesson that helped shape the person you are becoming.
+
+Most importantly, keep believing in yourself. Great things often begin with small steps, and every step you take is leading you toward something wonderful.
+
+May your heart remain happy, your dreams remain alive, and your future remain bright.
+
+Wishing you endless joy, good health, success, peace, laughter, and countless reasons to smile.
+
+Happy Birthday, Aaradhya.
+
+With warm wishes,
+
+Akhaya
+
+</p>
+
+</div>
+
+<button class="btn" onclick="nextPage(9)">
+🎂 Final Wish
+</button>
+
+</section>
+
+<!-- SCREEN 9 -->
+
+<section class="page fade" id="page9">
+
+<h1 class="final-title">
+Happy Birthday Aaradhya 💛✨
+</h1>
+
+<p style="margin-top:25px;">
+May every star in the universe remind you how special you are.<br>
+May happiness, success and beautiful memories always stay with you.
+</p>
+
+<button class="btn" onclick="location.reload()">
+💖 Read Again
+</button>
+
+</section>
+
+<canvas id="confetti"></canvas>
+
+<script>
+
+function nextPage(page){
+
+document.querySelectorAll('.page').forEach(section=>{
+section.classList.remove('active');
+});
+
+document.getElementById('page'+page).classList.add('active');
+
+}
+
+function startCelebration(){
+
+const music=document.getElementById('pianoMusic');
+const video=document.getElementById('birthdayVideo');
+
+nextPage(7);
+
+music.play();
+video.play();
+
+}
+
+/* STARS */
+
+const starsContainer=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+const star=document.createElement("div");
+
+star.classList.add("star");
+
+let size=Math.random()*3+1;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDuration=(Math.random()*3+2)+"s";
+
+starsContainer.appendChild(star);
+
+}
+
+/* CONFETTI */
+
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let pieces=[];
+
+for(let i=0;i<150;i++){
+
+pieces.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*6+2,
+speed:Math.random()*3+1
+});
+
+}
+
+function drawConfetti(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+pieces.forEach(p=>{
+
+ctx.fillStyle=["#ffd700","#ffffff","#ffec99"][Math.floor(Math.random()*3)];
+
+ctx.fillRect(p.x,p.y,p.r,p.r);
+
+p.y+=p.speed;
+
+if(p.y>canvas.height){
+
+p.y=0;
+p.x=Math.random()*canvas.width;
+
+}
+
+});
+
+requestAnimationFrame(drawConfetti);
+
+}
+
+drawConfetti();
+
+</script>
+
+</body>
+  </html>
