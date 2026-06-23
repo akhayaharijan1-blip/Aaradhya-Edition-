@@ -474,7 +474,88 @@ requestAnimationFrame(drawConfetti);
 }
 
 drawConfetti();
+/* FIREWORKS */
 
+const fireCanvas=document.getElementById("fireworksCanvas");
+const fireCtx=fireCanvas.getContext("2d");
+
+fireCanvas.width=window.innerWidth;
+fireCanvas.height=window.innerHeight;
+
+let fireworks=[];
+
+function launchFirework(){
+
+let rocket={
+x:Math.random()*fireCanvas.width,
+y:fireCanvas.height,
+targetY:100+Math.random()*250,
+speed:5
+};
+
+fireworks.push(rocket);
+
+}
+
+function startFireworks(){
+
+setInterval(()=>{
+
+launchFirework();
+
+},800);
+
+animateFireworks();
+
+}
+
+function animateFireworks(){
+
+fireCtx.clearRect(0,0,fireCanvas.width,fireCanvas.height);
+
+for(let i=0;i<fireworks.length;i++){
+
+let f=fireworks[i];
+
+fireCtx.beginPath();
+fireCtx.arc(f.x,f.y,3,0,Math.PI*2);
+fireCtx.fillStyle="gold";
+fireCtx.fill();
+
+f.y-=f.speed;
+
+if(f.y<=f.targetY){
+
+for(let j=0;j<40;j++){
+
+fireCtx.beginPath();
+
+let angle=Math.random()*Math.PI*2;
+let distance=Math.random()*80;
+
+fireCtx.arc(
+f.x+Math.cos(angle)*distance,
+f.y+Math.sin(angle)*distance,
+2,
+0,
+Math.PI*2
+);
+
+fireCtx.fillStyle=["gold","#fff","#ffec99"][Math.floor(Math.random()*3)];
+
+fireCtx.fill();
+
+}
+
+fireworks.splice(i,1);
+
+}
+
+}
+
+requestAnimationFrame(animateFireworks);
+
+  }
 </script>
 
 </body>
