@@ -552,31 +552,25 @@ f.y-=f.speed;
 
 if(f.y<=f.targetY){
 
-for(let j=0;j<40;j++){
-
-fireCtx.beginPath();
+for(let j=0;j<80;j++){
 
 let angle=Math.random()*Math.PI*2;
-let distance=Math.random()*80;
+let speed=Math.random()*4+1;
 
-fireCtx.arc(
-f.x+Math.cos(angle)*distance,
-f.y+Math.sin(angle)*distance,
-2,
-0,
-Math.PI*2
-);
-
-fireCtx.fillStyle=["gold","#fff","#ffec99"][Math.floor(Math.random()*3)];
-
-fireCtx.fill();
+fireworks.push({
+particle:true,
+x:f.x,
+y:f.y,
+vx:Math.cos(angle)*speed,
+vy:Math.sin(angle)*speed,
+life:80
+});
 
 }
 
 fireworks.splice(i,1);
 
-}
-
+    }
 }
 
 requestAnimationFrame(animateFireworks);
