@@ -542,7 +542,30 @@ fireCtx.clearRect(0,0,fireCanvas.width,fireCanvas.height);
 for(let i=0;i<fireworks.length;i++){
 
 let f=fireworks[i];
+if(f.particle){
 
+fireCtx.beginPath();
+
+fireCtx.arc(f.x,f.y,2,0,Math.PI*2);
+
+fireCtx.fillStyle=["gold","#fff","#ffec99"][Math.floor(Math.random()*3)];
+
+fireCtx.fill();
+
+f.x+=f.vx;
+f.y+=f.vy;
+
+f.life--;
+
+if(f.life<=0){
+
+fireworks.splice(i,1);
+
+}
+
+continue;
+
+    }
 fireCtx.beginPath();
 fireCtx.arc(f.x,f.y,3,0,Math.PI*2);
 fireCtx.fillStyle="gold";
