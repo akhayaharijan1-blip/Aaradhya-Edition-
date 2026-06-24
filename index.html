@@ -519,7 +519,13 @@ fireworks.push(rocket);
 
 }
 
+let fireworkStarted=false;
+
 function startFireworks(){
+
+if(fireworkStarted) return;
+
+fireworkStarted=true;
 
 setInterval(()=>{
 
@@ -529,8 +535,7 @@ launchFirework();
 
 animateFireworks();
 
-}
-
+    }
 function animateFireworks(){
 
 fireCtx.clearRect(0,0,fireCanvas.width,fireCanvas.height);
