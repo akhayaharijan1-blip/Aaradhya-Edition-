@@ -506,7 +506,9 @@ fireCanvas.height=window.innerHeight;
 let fireworks=[];
 
 function launchFirework(){
-
+document.getElementById("rocketSound").currentTime = 0;
+document.getElementById("rocketSound").play();
+    
 let rocket={
 x:Math.random()*fireCanvas.width,
 y:fireCanvas.height,
