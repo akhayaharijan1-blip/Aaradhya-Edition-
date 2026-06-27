@@ -542,7 +542,19 @@ speed:Math.random()*3+1
 }
 
 function drawConfetti(){
-
+window.addEventListener("load", () => {
+const music=document.getElementById("bgMusic");
+music.volume=0;
+music.play().then(()=>{
+let fade=setInterval(()=>{
+if(music.volume<0.35){
+music.volume+=0.02;
+}else{
+clearInterval(fade);
+}
+},200);
+}).catch(()=>{});
+});
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
 pieces.forEach(p=>{
