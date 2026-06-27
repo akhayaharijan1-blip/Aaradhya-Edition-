@@ -466,7 +466,17 @@ May happiness, success and beautiful memories always stay with you.
 <canvas id="confetti"></canvas>
 
 <script>
+function playClick(){
 
+const click=document.getElementById("clickSound");
+
+click.currentTime=0;
+
+click.volume=0.35;
+
+click.play();
+
+    }
 function nextPage(page){
 
 document.querySelectorAll('.page').forEach(section=>{
