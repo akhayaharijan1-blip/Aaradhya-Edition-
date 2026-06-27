@@ -734,8 +734,6 @@ fireCtx.fill();
 f.y-=f.speed;
 
 if(f.y<=f.targetY){
-document.getElementById("burstSound").currentTime = 0;
-document.getElementById("burstSound").play();
 for(let j=0;j<120;j++){
 
 let angle=Math.random()*Math.PI*2;
@@ -771,8 +769,6 @@ requestAnimationFrame(animateFireworks);
 <audio id="bgMusic" src="music2.mp3" loop></audio>
 <audio id="celebrationMusic" src="birthday.mp3"></audio>
 <audio id="rocketSound" src="rocket.mp3" preload="auto"></audio>
-
-<audio id="burstSound" src="burst.mp3" preload="auto"></audio>
 <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 <audio id="whooshSound" src="whoosh.mp3" preload="auto"></audio>
 </body>
