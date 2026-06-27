@@ -503,6 +503,19 @@ setTimeout(()=>{
 
 nextPage(8);
 
+const bg=document.getElementById("bgMusic");
+bg.currentTime=0;
+bg.volume=0;
+bg.play();
+
+let fade=setInterval(()=>{
+if(bg.volume<0.35){
+bg.volume+=0.02;
+}else{
+clearInterval(fade);
+}
+},200);
+
 },9000);
 }
 
