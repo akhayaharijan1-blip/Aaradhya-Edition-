@@ -478,7 +478,17 @@ document.getElementById('page'+page).classList.add('active');
 }
 
 function startCelebration(){
+const bg=document.getElementById("bgMusic");
 
+let fadeOut=setInterval(()=>{
+if(bg.volume>0.02){
+bg.volume-=0.02;
+}else{
+clearInterval(fadeOut);
+bg.pause();
+bg.currentTime=0;
+}
+},120);
 nextPage(7);
 
 startFireworks();
